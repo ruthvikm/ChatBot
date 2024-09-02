@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis - Ruthvik's Personal Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .thinking {
+            display: none;
+            font-size: 18px;
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jarvis - Ruthvik's Personal Assistant</h1>
+        <form id="question-form" method="POST">
+            <label for="question">Ask Jarvis:</label>
+            <input type="text" id="question" name="question" placeholder="Type your question here..." required>
+            <input type="submit" value="Ask">
+        </form>
+
+        <div class="thinking" id="thinking">Jarvis is thinking...</div>
+
+        {% if response %}
+            <div class="response">
+                <h2>Response:</h2>
+                <p>{{ response }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('question-form').onsubmit = function() {
+            document.getElementById('thinking').style.display = 'block';
+        };
+    </script>
+</body>
+</html>

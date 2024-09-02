@@ -1,0 +1,4 @@
+langchain
+cohere
+pypdf
+flask
